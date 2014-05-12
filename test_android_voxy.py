@@ -27,30 +27,12 @@ class SimpleAndroidTests(unittest.TestCase):
         self.driver.quit()
 
     def test_find_elements(self):
-        #it's checking the wrong activity
-
-
-        self.driver.implicitly_wait(30)
-        # el = self.driver.find_element_by_accessibility_id('com.voxy.news.view.custom.VoxyButton:id/login')
-        el = self.driver.find_element_by_accessibility_id('com.voxy.news.debug:id/login')
-
-
-        # el = self.driver.find_element(By.id('com.voxy.news.view.custom.VoxyButton:id/login'))
-        # self.assertIsNotNone(el)
-        # self.driver.back()
-
-        # el = self.driver.find_element_by_name("com.voxy.news.debug:id/login")
-        # self.assertIsNotNone(el)
-
-    #     els = self.driver.find_elements_by_android_uiautomator("new UiSelector().clickable(true)")
-    #     self.assertEqual(12, len(els))
-
-    #     els = self.driver.find_elements_by_android_uiautomator('new UiSelector().enabled(true)')
-    #     self.assertEqual(20, len(els))
-    #     self.assertEqual("API Demos", els[7].text)
+        el = self.driver.find_element_by_id('com.voxy.news.debug:id/login')
+        self.assertIsNotNone(el)
 
 
 
+# main
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(SimpleAndroidTests)
     unittest.TextTestRunner(verbosity=2).run(suite)
