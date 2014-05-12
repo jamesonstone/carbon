@@ -10,7 +10,7 @@ PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
 
-class SimpleAndroidTests(unittest.TestCase):
+class TestMobileLogin(unittest.TestCase):
     def setUp(self):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
@@ -37,5 +37,5 @@ class SimpleAndroidTests(unittest.TestCase):
 
 # main
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(SimpleAndroidTests)
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestMobileLogin)
     unittest.TextTestRunner(verbosity=2).run(suite)
