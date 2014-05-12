@@ -29,8 +29,11 @@ class TestMobileLogin(unittest.TestCase):
     def test_find_elements(self):
         # TODO: change this implicity wait
         self.driver.implicitly_wait(8)
+        print 'wait 8 seconds'
         el = self.driver.find_element_by_id('com.voxy.news.debug:id/login')
         self.assertIsNotNone(el)
+        self.assertEquals('Sign in', el.text)
+        print el.text
         el.click()
 
 
