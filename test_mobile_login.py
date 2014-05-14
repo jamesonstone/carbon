@@ -26,7 +26,7 @@ class TestMobileLogin(unittest.TestCase):
         # end the session
         self.driver.quit()
 
-    def test_sign_button(self):
+    def test_a_sign_button(self):
         # TODO: change this explicit wait
         self.driver.implicitly_wait(8)
         print '\nwait 8 seconds'
@@ -36,9 +36,18 @@ class TestMobileLogin(unittest.TestCase):
         print el.text
         el.click()
 
-    def attempt_login_bad_creds(self):
+    # def test_b_bad_login(self):
         #enter bad credientals 
         #verify errors
+        print 'entering bad email and password'
+        email = self.driver.find_element_by_id('com.voxy.news.debug:id/email')
+        self.assertIsNotNone(email)
+        email.send_keys('voxy@boxyroxy.com')
+
+        password = self.driver.find_element_by_id('com.voxy.news.debug:id/password')
+        self.assertIsNotNone(password)
+        password.send_keys('wowowowowowo')
+
 
 
 
