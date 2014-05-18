@@ -10,27 +10,9 @@ PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
 
-driver = None
+# driver = None
 
-def setUp():
-    desired_caps = {}
-    desired_caps['platformName'] = 'Android'
-    desired_caps['platformVersion'] = '4.2'
-    desired_caps['deviceName'] = 'Android Emulator'
-    desired_caps['app'] = PATH(
-            '../../repo/android/app/build/apk/app-debug-unaligned.apk'
-        )
-    driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
-
-def tearDown():
-    # end the session
-    driver.quit()
-
-
-
-
-class TestMobileLogin(  unittest.TestCase):
-#     def setUp(self):
+# def setUp():
 #     desired_caps = {}
 #     desired_caps['platformName'] = 'Android'
 #     desired_caps['platformVersion'] = '4.2'
@@ -38,11 +20,47 @@ class TestMobileLogin(  unittest.TestCase):
 #     desired_caps['app'] = PATH(
 #             '../../repo/android/app/build/apk/app-debug-unaligned.apk'
 #         )
-#     self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+#     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
-# def tearDown(self):
+# def tearDown():
 #     # end the session
-#     self.driver.quit()
+#     driver.quit()
+
+class Test(unittest.TestCase):
+    @classmethod     
+    def setUpClass(self):
+        desired_caps = {}
+        desired_caps['platformName'] = 'Android'
+        desired_caps['platformVersion'] = '4.2'
+        desired_caps['deviceName'] = 'Android Emulator'
+        desired_caps['app'] = PATH(
+                '../../repo/android/app/build/apk/app-debug-unaligned.apk'
+            )
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+
+    @classmethod
+    def tearDownClass(self):       
+        # end the session
+        self.driver.quit()
+
+
+class TestMobileLogin(unittest.TestCase):
+    # def setUp(self):
+    #     desired_caps = {}
+    #     desired_caps['platformName'] = 'Android'
+    #     desired_caps['platformVersion'] = '4.2'
+    #     desired_caps['deviceName'] = 'Android Emulator'
+    #     desired_caps['app'] = PATH(
+    #             '../../repo/android/app/build/apk/app-debug-unaligned.apk'
+    #         )
+    #     self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+
+    # def tearDown(self):
+    #     # end the session
+    #     self.driver.quit()
+
+    def setUp(self):
+        self.
 
     def test_a_sign_button(self):
         # TODO: change this explicit wait
@@ -51,7 +69,7 @@ class TestMobileLogin(  unittest.TestCase):
         el = self.driver.find_element_by_id('com.voxy.news.debug:id/login')
         self.assertIsNotNone(el)
         self.assertEquals('Sign in', el.text)
-        print el.text
+        print el.text()
         el.click()
         #enter bad credientals 
         #verify errors
@@ -68,13 +86,15 @@ class TestMobileLogin(  unittest.TestCase):
         signup = self.driver.find_element_by_id('com.voxy.news.debug:id/signup')
         self.assertIsNotNone(signup)
         self.driver.implicitly_wait(5)
-        print signup.text
+        print signup.text()
         signup.click()
         self.driver.implicitly_wait(8)
 
         alertmsg = self.driver.find_element_by_id('android:id/alertTitle')
         self.assertIsNotNone(alertmsg)
         self.assertEquals(alertmsg.text, 'Email or password incorrect')
+
+    Test.tearDownClass()
 
 
 
