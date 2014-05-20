@@ -5,43 +5,53 @@ import unittest
 from appium import webdriver
 
 
+# def setUpModule():
+#     android.setUp()
+
+# def tearDownModule():
+#     android.tearDown()
+
+
+
 class TestMobileLogin(unittest.TestCase):
-    android.setUp()
 
     def test_a_sign_button(self):
+        DRIVER = android.setUp()
+
         # TODO: change this explicit wait
-        sleep(10)
+        #DRIVER.implicitly_wait(8)
+        sleep(8)
         print '\nwait 8 seconds'
+        
         el = android.DRIVER.find_element_by_id('com.voxy.news.debug:id/login')
-        android.assertIsNotNone(el)
-        android.assertEquals('Sign in', el.text)
+        self.assertIsNotNone(el)
+        self.assertEquals('Sign in', el.text)
         print el.text()
         el.click()
+        
         #enter bad credientals 
         #verify errors
         print 'entering bad email and password'
         email = android.DRIVER.find_element_by_id('com.voxy.news.debug:id/email')
-        android.assertIsNotNone(email)
+        assertIsNotNone(email)
         email.send_keys('voxy@boxyroxy.com')
 
-        password = android.DRIVER.find_element_by_id('com.voxy.news.debug:id/password')
-        android.assertIsNotNone(password)
+        password = androd.DRIVER.find_element_by_id('com.voxy.news.debug:id/password')
+        assertIsNotNone(password)
         password.send_keys('wowowowowowo')
-        sleep(5)
+        DRIVER.implicitly_wait(8)
 
-        signup = android.DRIVER.find_element_by_id('com.voxy.news.debug:id/signup')
-        android.assertIsNotNone(signup)
-        sleep(5)
+        signup = DRIVER.find_element_by_id('com.voxy.news.debug:id/signup')
+        assertIsNotNone(signup)
+        DRIVER.implicitly_wait(8)
         print signup.text()
+
         signup.click()
-        #android.DRIVER.implicitly_wait(8)
-        sleep(5)
+        DRIVER.implicitly_wait(8)
 
-        alertmsg = android.DRIVER.find_element_by_id('android:id/alertTitle')
-        android.assertIsNotNone(alertmsg)
-        android.assertEquals(alertmsg.text, 'Email or password incorrect')
-
-    android.tearDown()
+        alertmsg = DRIVER.find_element_by_id('android:id/alertTitle')
+        assertIsNotNone(alertmsg)
+        assertEquals(alertmsg.text, 'Email or password incorrect')
 
 
 
