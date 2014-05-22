@@ -31,7 +31,6 @@ class SimpleAndroidTests(unittest.TestCase):
         self.driver.implicitly_wait(8)
         el = self.driver.find_element_by_id('com.voxy.news.debug:id/login')
         self.assertIsNotNone(el)
-        print el.text()
         el.click()
 
 
