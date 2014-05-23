@@ -19,10 +19,9 @@ class TestMobileGuide(unittest.TestCase):
 		android.driver.implicitly_wait(10)
 		self.assertIsNotNone(android.driver.find_element_by_id('com.voxy.news.debug:id/title'))
 		self.assertIsNotNone(android.driver.find_element_by_id('com.voxy.news.debug:id/goalsTitle'))
-
-
-
-
+		android.driver.execute_script("mobile: swipe", {"touchCount": 1 , "startX": 698, "startY": 776,
+		 "endX": 251, "endY": 779, "duration": 0.9256836 })
+		sleep(5)
 
 
 
