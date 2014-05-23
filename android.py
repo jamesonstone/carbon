@@ -12,7 +12,7 @@ PATH = lambda p: os.path.abspath(
 )
 
 def setUp():
-    print 'setup module'
+    print 'setup'
     desired_caps = {}
     desired_caps['platformName'] = 'Android'
     desired_caps['platformVersion'] = '4.2'
