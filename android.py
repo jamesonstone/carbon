@@ -41,16 +41,16 @@ def setUpLogin():
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
     
     #login user
-    android.driver.implicitly_wait(8)
-    login_button = android.driver.find_element_by_id('com.voxy.news.debug:id/login')
+    driver.implicitly_wait(8)
+    login_button = driver.find_element_by_id('com.voxy.news.debug:id/login')
     login_button.click()
-    email = android.driver.find_element_by_id('com.voxy.news.debug:id/email')
-    email.send_keys('jameson@stone.tc')
-    password = android.driver.find_element_by_id('com.voxy.news.debug:id/password')
+    email = driver.find_element_by_id('com.voxy.news.debug:id/email')
+    email.send_keys('mobiletesting@voxy.com')
+    password = driver.find_element_by_id('com.voxy.news.debug:id/password')
     password.send_keys('things')
 
-    signup = android.driver.find_element_by_id('com.voxy.news.debug:id/signup')
+    signup = driver.find_element_by_id('com.voxy.news.debug:id/signup')
     signup.click()
-    android.driver.implicitly_wait(8)
+    sleep(5)
 
 

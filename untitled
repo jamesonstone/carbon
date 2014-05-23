@@ -1,0 +1,17 @@
+import os
+from time import sleep
+import unittest 
+from appium import webdriver
+import android
+
+
+
+def setUpModule():
+    android.setUp()
+
+def tearDownModule():
+    android.tearDown()
+
+
+class TestMobileGuide(unittest.TestCase):
+	return
