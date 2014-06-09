@@ -45,8 +45,11 @@ class TestMobileGuide(unittest.TestCase):
 		sleep(1)
 		android.driver.find_element_by_id('com.voxy.news.debug:id/flipToResource').click()
 		sleep(2)
+		# click side drawer
 		android.driver.find_element_by_id('com.voxy.news.debug:id/currentLevel').click()
-		sleep(3)
+		sleep(1)
+		android.driver.find_element_by_name('Navigate up').click()
+		sleep(2)
 
 
 

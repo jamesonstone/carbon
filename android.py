@@ -18,7 +18,8 @@ def setUp():
     desired_caps['platformVersion'] = '4.2'
     desired_caps['deviceName'] = 'Android Emulator'
     desired_caps['app'] = PATH(
-        '../../repo/android/app/build/apk/app-debug-unaligned.apk'
+        #'../../repo/android/app/build/apk/app-debug-unaligned.apk'
+        '../../repo/android/app/build/apk/app-voxy-debug-unaligned.apk'
     )
     global driver
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
@@ -35,7 +36,8 @@ def setUpLogin():
     desired_caps['platformVersion'] = '4.2'
     desired_caps['deviceName'] = 'Android Emulator'
     desired_caps['app'] = PATH(
-        '../../repo/android/app/build/apk/app-debug-unaligned.apk'
+        #'../../repo/android/app/build/apk/app-debug-unaligned.apk'
+        '../../repo/android/app/build/apk/app-voxy-debug-unaligned.apk'
     )
     global driver
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)

@@ -73,9 +73,6 @@ class TestMobileLogin(unittest.TestCase):
         android.driver.find_element_by_id('com.voxy.news.debug:id/password').send_keys('asjhdfajhsdflhajkdshfalshdflkjahsdlfkjhaskldhfhajsdfjaahdsfjhasdljhflasdkj2372938423784hjshdfakshfsjf')
         android.driver.find_element_by_id('com.voxy.news.debug:id/signup').click()
         android.driver.implicitly_wait(5)
-        ok_button = android.driver.find_element_by_id('android:id/button1')
-        self.assertIsNotNone(ok_button)
-        ok_button.click()
         android.driver.back()
 
 
