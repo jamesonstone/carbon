@@ -16,8 +16,9 @@ def tearDownModule():
 class TestMobileExplore(unittest.TestCase):
 
 	def test_1_explore(self):
-		android.driver.implicitly_wait(10)
 		self.assertIsNotNone(android.driver.find_element_by_id('com.voxy.news.debug:id/title'))
+		android.driver.find_element_by_name('Navigate up').click()
+		sleep(5)
 
 
 

@@ -19,7 +19,7 @@ def setUp():
     desired_caps['deviceName'] = 'Android Emulator'
     desired_caps['app'] = PATH(
         #'../../repo/android/app/build/apk/app-debug-unaligned.apk'
-        '../../repo/android/app/build/apk/app-voxy-debug-unaligned.apk'
+        '../../repo/android/app/build/outputs/apk/app-voxy-debug-unaligned.apk'
     )
     global driver
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
@@ -37,7 +37,7 @@ def setUpLogin():
     desired_caps['deviceName'] = 'Android Emulator'
     desired_caps['app'] = PATH(
         #'../../repo/android/app/build/apk/app-debug-unaligned.apk'
-        '../../repo/android/app/build/apk/app-voxy-debug-unaligned.apk'
+        '../../repo/android/app/build/outputs/apk/app-voxy-debug-unaligned.apk'
     )
     global driver
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
@@ -47,8 +47,10 @@ def setUpLogin():
     login_button = driver.find_element_by_id('com.voxy.news.debug:id/login')
     login_button.click()
     email = driver.find_element_by_id('com.voxy.news.debug:id/email')
+    email.click()
     email.send_keys('mobiletesting@voxy.com')
     password = driver.find_element_by_id('com.voxy.news.debug:id/password')
+    password.click()
     password.send_keys('things')
 
     signup = driver.find_element_by_id('com.voxy.news.debug:id/signup')
